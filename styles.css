@@ -537,516 +537,629 @@ body {
 }
 
 /* ==========================================================================
-   CENA 02: THE SPEED COUNTER RHYTHM (O RITMO DO BALCÃO EM TÓQUIO)
+   CENA 02: THE SPEED DISPATCH (A MECÂNICA DOS 180 SEGUNDOS)
    ========================================================================== */
-.scene-counter {
+.scene-dispatch {
   position: relative;
   width: 100vw;
-  min-height: 100vh;
-  background-color: #0b090a;
-  border-top: 2px solid rgba(184, 20, 29, 0.4);
-  padding: 120px 48px;
+  height: 250vh; /* 1500px scrub distance */
+  background: #080708;
+}
+
+.dispatch-viewport {
+  position: sticky;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
   overflow: hidden;
-  z-index: 20;
+  background: #080708;
 }
 
-.counter-atmosphere {
+.dispatch-counter-surface {
   position: relative;
-  max-width: 1400px;
-  margin: 0 auto;
+  width: 100vw;
+  height: 100vh;
+  background: #080708;
+  overflow: hidden;
 }
 
-.counter-giant-type {
+.counter-rail-track {
   position: absolute;
-  top: -60px;
-  left: -20px;
+  top: 88vh;
+  left: 0;
+  width: 100vw;
+  height: 2px;
+  background: rgba(245, 184, 46, 0.25);
+  z-index: 2;
+}
+
+.counter-watermark-time {
   font-family: var(--font-display);
-  font-size: clamp(6rem, 14vw, 13rem);
-  color: rgba(255, 255, 255, 0.03);
-  letter-spacing: 8px;
-  white-space: nowrap;
+  font-size: 28vw;
+  color: rgba(255, 255, 255, 0.025);
+  position: absolute;
+  right: -2vw;
+  top: 5vh;
+  line-height: 1;
   pointer-events: none;
+  user-select: none;
   z-index: 1;
 }
 
-.counter-grid {
-  position: relative;
-  z-index: 2;
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 64px;
-  align-items: center;
+.tray-assembly {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 54vw;
+  height: 76vh;
+  z-index: 10;
+  transform: translate3d(105vw, 12vh, 0) scale(0.92);
+  will-change: transform;
 }
 
-.counter-col-media {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.media-frame {
+.tray-media-frame {
   position: relative;
   width: 100%;
-  height: 580px;
+  height: calc(100% - 40px);
+  border-radius: 6px;
   overflow: hidden;
-  border-radius: 4px;
-  background-color: #1a1617;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(184, 20, 29, 0.4);
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.9);
+  background: #120e0f;
 }
 
-.scene-img {
+.tray-photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: scale(1.03);
-  transition: transform 0.8s var(--ease-cinematic);
 }
 
-.media-frame:hover .scene-img {
-  transform: scale(1.08);
-}
-
-.media-overlay-subtle {
+.tray-rim-shadow {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 40%, rgba(10, 8, 9, 0.85) 100%);
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.6);
   pointer-events: none;
 }
 
-.caption-stamp {
+.tray-tag-chopsticks {
+  height: 36px;
   display: flex;
-  flex-direction: column;
-  gap: 6px;
-  border-left: 2px solid var(--crimson-primary);
-  padding-left: 16px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+  margin-top: 6px;
 }
 
-.stamp-code {
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 2px;
+.chopsticks-brand {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: 1.5px;
   color: var(--gold-accent);
 }
 
-.stamp-text {
-  font-size: 0.88rem;
-  color: var(--cream-muted);
-  line-height: 1.4;
+.chopsticks-sub {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.6);
 }
 
-.counter-col-content {
+.dispatch-editorial-lockup {
+  position: absolute;
+  left: 62vw;
+  top: 18vh;
+  width: 34vw;
+  z-index: 12;
+  opacity: 0;
+  transform: translate3d(0, 40px, 0);
+  clip-path: inset(0 0 100% 0);
   display: flex;
   flex-direction: column;
+  gap: 18px;
+}
+
+.editorial-eyebrow {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  color: var(--crimson-light);
+  text-transform: uppercase;
+}
+
+.editorial-headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 4.2vw, 4.2rem);
+  line-height: 0.94;
+  letter-spacing: 1px;
+  color: var(--text-white);
+}
+
+.editorial-body {
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: var(--cream-paper);
+}
+
+.dispatch-metrics-row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 16px;
+}
+
+.metric-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.m-val {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  letter-spacing: 1px;
+  color: var(--gold-accent);
+}
+
+.m-lbl {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ==========================================================================
+   CENA 03: THE TRINITY APERTURE (A ANATOMIA DOS 3 CLÁSSICOS)
+   ========================================================================== */
+.scene-trinity {
+  position: relative;
+  width: 100vw;
+  height: 300vh; /* 2000px scrub distance */
+  background: #050405;
+}
+
+.trinity-viewport {
+  position: sticky;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #050405;
+}
+
+.trinity-slits-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.slit-panel {
+  position: relative;
+  height: 100vh;
+  flex: 3.33; /* Default equal split */
+  overflow: hidden;
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  will-change: flex-grow;
+  transition: filter 0.3s ease;
+}
+
+.slit-panel:last-child {
+  border-right: none;
+}
+
+.slit-media-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.slit-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.slit-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(5, 4, 5, 0.3) 0%, rgba(5, 4, 5, 0.85) 100%);
+  pointer-events: none;
+}
+
+.slit-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 48px 36px;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.slit-num {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  color: var(--gold-accent);
+  line-height: 1;
+}
+
+.slit-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 3.8vw, 4.2rem);
+  line-height: 0.95;
+  letter-spacing: 1px;
+  color: var(--text-white);
+  white-space: nowrap;
+}
+
+.slit-desc {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--cream-paper);
+  max-width: 480px;
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  pointer-events: none;
+}
+
+.slit-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  letter-spacing: 1.5px;
+  color: var(--gold-accent);
+  text-decoration: none;
+  border: 1px solid rgba(245, 184, 46, 0.4);
+  padding: 10px 22px;
+  border-radius: 4px;
+  align-self: flex-start;
+  margin-top: 6px;
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  pointer-events: none;
+  transition: all 0.25s ease;
+}
+
+.slit-action:hover {
+  background: var(--gold-accent);
+  color: #000;
+}
+
+/* ==========================================================================
+   CENA 04: THE SOCIAL MONOLITH (A PROVA SOCIAL MONUMENTAL)
+   ========================================================================== */
+.scene-monolith {
+  position: relative;
+  width: 100vw;
+  height: 200vh; /* 1200px scrub distance */
+  background: #050405;
+}
+
+.monolith-viewport {
+  position: sticky;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #050405;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.monolith-backdrop-score {
+  font-family: var(--font-display);
+  font-size: clamp(14rem, 30vw, 26rem);
+  color: rgba(184, 20, 29, 0.06);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+
+.monolith-quote-wrapper {
+  position: relative;
+  z-index: 2;
+  max-width: 85vw;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 28px;
 }
 
-.scene-eyebrow {
-  font-size: 0.76rem;
+.monolith-kicker {
+  font-size: 0.82rem;
   font-weight: 800;
   letter-spacing: 3px;
   color: var(--crimson-light);
   text-transform: uppercase;
 }
 
-.scene-title {
+.monolith-phrase {
   font-family: var(--font-display);
-  font-size: clamp(2.8rem, 4.5vw, 4.2rem);
-  line-height: 0.95;
+  font-size: clamp(2.6rem, 5vw, 4.8rem);
+  line-height: 1.02;
   letter-spacing: 1px;
-  color: var(--text-white);
+  color: #ffffff;
+  text-align: center;
+  margin: 0;
 }
 
-.scene-title-large {
-  font-family: var(--font-display);
-  font-size: clamp(3.4rem, 5.5vw, 5.6rem);
-  line-height: 0.92;
-  letter-spacing: 1.5px;
-  color: var(--text-white);
-}
-
-.gold-text {
-  color: var(--gold-accent);
-}
-
-.scene-prose {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  font-size: 1.05rem;
-  line-height: 1.65;
-  color: var(--cream-paper);
-}
-
-.counter-stats-ribbon {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  padding-top: 28px;
-  margin-top: 10px;
-}
-
-.stat-unit {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.stat-num {
-  font-family: var(--font-display);
-  font-size: 2.5rem;
-  color: var(--gold-accent);
-  line-height: 1;
-}
-
-.stat-lbl {
-  font-size: 0.78rem;
-  color: var(--cream-muted);
-  line-height: 1.35;
-}
-
-/* ==========================================================================
-   CENA 03: THE TRINITY MENU SYSTEM (EDITORIAL GOURMET SEM CARDS)
-   ========================================================================== */
-.scene-menu {
-  position: relative;
-  width: 100vw;
-  min-height: 100vh;
-  background-color: var(--black-pure);
-  padding: 120px 48px;
-  z-index: 20;
-}
-
-.menu-stage {
-  max-width: 1300px;
-  margin: 0 auto;
-}
-
-.menu-intro {
-  margin-bottom: 56px;
-}
-
-.menu-list-editorial {
-  display: flex;
-  flex-direction: column;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.menu-row {
-  display: grid;
-  grid-template-columns: 80px 1fr 160px;
-  gap: 32px;
-  align-items: center;
-  padding: 38px 24px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  transition: all 0.3s var(--ease-smooth);
-  cursor: pointer;
-}
-
-.menu-row:hover,
-.menu-row.active {
-  background: rgba(184, 20, 29, 0.08);
-  border-bottom-color: var(--crimson-primary);
-}
-
-.row-index {
-  font-family: var(--font-display);
-  font-size: 2.2rem;
-  color: rgba(255, 255, 255, 0.3);
-  transition: color 0.3s ease;
-}
-
-.menu-row:hover .row-index,
-.menu-row.active .row-index {
-  color: var(--gold-accent);
-}
-
-.row-main {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.row-headline {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.row-name {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 3.2vw, 3rem);
-  letter-spacing: 1px;
-  color: var(--text-white);
-  line-height: 1;
-}
-
-.row-badge {
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 1.5px;
-  background-color: var(--crimson-dark);
-  color: var(--cream-paper);
-  padding: 4px 10px;
-  border-radius: 3px;
-  text-transform: uppercase;
-}
-
-.row-desc {
-  font-size: 0.96rem;
-  line-height: 1.5;
-  color: var(--cream-muted);
-  max-width: 780px;
-}
-
-.row-action {
-  text-align: right;
-}
-
-.row-btn {
-  display: inline-block;
-  font-family: var(--font-display);
-  font-size: 1.35rem;
-  letter-spacing: 1.5px;
-  color: var(--gold-accent);
-  text-decoration: none;
-  padding: 10px 18px;
-  border: 1px solid rgba(245, 184, 46, 0.3);
-  border-radius: 4px;
-  transition: all 0.25s ease;
-}
-
-.row-btn:hover {
-  background: var(--gold-accent);
-  color: var(--black-pure);
-  box-shadow: 0 4px 16px rgba(245, 184, 46, 0.4);
-}
-
-/* ==========================================================================
-   CENA 04: THE CONTRAST MANIFESTO (PROVA SOCIAL COMO FRASE MONUMENTAL)
-   ========================================================================== */
-.scene-quote {
-  position: relative;
-  width: 100vw;
-  min-height: 75vh;
-  background: linear-gradient(180deg, #0b090a 0%, var(--crimson-deep) 50%, #0b090a 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 120px 48px;
+.word-slice {
   overflow: hidden;
-  z-index: 20;
+  display: inline-block;
+  vertical-align: bottom;
+  padding: 0 4px;
 }
 
-.quote-watermark {
+.word-slice .inner {
+  display: inline-block;
+  transform: translate3d(0, 110%, 0);
+  will-change: transform;
+}
+
+.word-slice .inner.highlight {
+  color: var(--cream-paper);
+}
+
+.word-slice .inner.gold-text {
+  color: var(--gold-accent);
+}
+
+.word-slice .inner.cross-through {
+  position: relative;
+  color: var(--crimson-light);
+}
+
+.word-slice .inner.cross-through::after {
+  content: '';
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: var(--font-display);
-  font-size: clamp(6rem, 16vw, 15rem);
-  color: rgba(255, 255, 255, 0.04);
-  letter-spacing: 10px;
-  white-space: nowrap;
+  left: 0;
+  top: 55%;
+  width: 100%;
+  height: 4px;
+  background: var(--crimson-light);
+  transform: scaleX(var(--cross-scale, 0));
+  transform-origin: left center;
   pointer-events: none;
 }
 
-.quote-container {
-  position: relative;
-  z-index: 2;
-  max-width: 1100px;
-  text-align: center;
-}
-
-.quote-mark {
-  font-family: var(--font-display);
-  font-size: 6rem;
-  line-height: 0.5;
-  color: var(--gold-accent);
-  margin-bottom: 20px;
-}
-
-.quote-text {
-  font-family: var(--font-display);
-  font-size: clamp(2.4rem, 4.4vw, 4.4rem);
-  line-height: 1.05;
-  letter-spacing: 1px;
-  color: var(--cream-paper);
-  margin-bottom: 36px;
-}
-
-.quote-author {
+.monolith-citation {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  margin-top: 10px;
 }
 
-.quote-author cite {
-  font-style: normal;
-  font-size: 0.82rem;
+.cite-author {
+  font-size: 0.84rem;
   font-weight: 800;
-  letter-spacing: 2.5px;
+  letter-spacing: 2px;
   color: var(--gold-accent);
 }
 
-.quote-note {
-  font-size: 0.86rem;
-  color: rgba(255, 255, 255, 0.7);
+.cite-details {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 /* ==========================================================================
-   CENA 05: CENTRO SÃO BERNARDO LOCATION DOCK
+   CENA 05: THE HARBOR AT MARECHAL DEODORO (A CASA REAL NO CENTRO)
    ========================================================================== */
-.scene-location {
+.scene-harbor {
   position: relative;
   width: 100vw;
-  min-height: 90vh;
-  background-color: var(--black-pure);
-  padding: 100px 48px;
-  z-index: 20;
+  height: 200vh; /* 1200px scrub distance */
+  background: #050405;
 }
 
-.location-grid {
-  max-width: 1300px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 64px;
-  align-items: center;
-}
-
-.location-visual {
-  position: relative;
-  width: 100%;
-  height: 520px;
-  border-radius: 6px;
+.harbor-viewport {
+  position: sticky;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #050405;
 }
 
-.location-img {
+.harbor-backdrop-photo {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
 }
 
-.location-pill-overlay {
+.harbor-img {
   position: absolute;
-  top: 24px;
-  left: 24px;
+  right: 0;
+  top: 0;
+  width: 66vw;
+  height: 100vh;
+  object-fit: cover;
+  object-position: center left;
+  transform: scale(1.15) translate3d(2%, 0, 0);
+  will-change: transform;
+}
+
+.harbor-scrim-left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 60vw;
+  height: 100vh;
+  background: linear-gradient(90deg, #050405 0%, #050405 55%, transparent 100%);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.harbor-scrim-top {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(5, 4, 5, 0.7) 100%);
+  z-index: 6;
+  pointer-events: none;
+}
+
+.harbor-station-sign {
+  position: absolute;
+  left: 6vw;
+  top: 16vh;
+  width: 44vw;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transform: translate3d(0, 30px, 0);
+  opacity: 0;
+}
+
+.sign-pill-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   background: rgba(14, 14, 14, 0.85);
-  backdrop-filter: blur(10px);
   border: 1px solid rgba(245, 184, 46, 0.4);
   padding: 8px 16px;
   border-radius: 4px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.76rem;
-  font-weight: 800;
-  letter-spacing: 1.5px;
-  color: var(--gold-accent);
+  align-self: flex-start;
 }
 
-.pulse-dot {
+.live-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: #2ecc71;
+  background: #2ecc71;
   box-shadow: 0 0 10px #2ecc71;
   animation: pulse-live 1.8s infinite;
 }
 
 @keyframes pulse-live {
   0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.85); }
+  50% { opacity: 0.35; transform: scale(0.85); }
 }
 
-.location-details {
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-}
-
-.location-info-list {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.info-block {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 18px;
-}
-
-.info-label {
-  font-size: 0.72rem;
+.live-text {
+  font-size: 0.76rem;
   font-weight: 800;
-  letter-spacing: 2px;
-  color: var(--crimson-light);
-}
-
-.info-val {
-  font-size: 1.05rem;
-  color: var(--text-white);
-  line-height: 1.45;
-  font-weight: 600;
-}
-
-.info-sub {
-  font-size: 0.84rem;
-  color: var(--cream-muted);
-}
-
-/* ==========================================================================
-   CENA 06: FINAL DESTINATION ACTION (FECHAMENTO DIRETO AO PONTO)
-   ========================================================================== */
-.scene-action {
-  position: relative;
-  width: 100vw;
-  background: radial-gradient(circle at center top, var(--crimson-dark) 0%, #080607 80%);
-  padding: 130px 48px 40px 48px;
-  text-align: center;
-  z-index: 20;
-}
-
-.action-container {
-  max-width: 1000px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 24px;
-  padding-bottom: 80px;
-}
-
-.action-crest {
-  font-family: var(--font-display);
-  font-size: 4rem;
+  letter-spacing: 1.5px;
   color: var(--gold-accent);
-  letter-spacing: 4px;
-  text-shadow: 0 0 30px rgba(245, 184, 46, 0.5);
 }
 
-.action-title {
+.harbor-title {
   font-family: var(--font-display);
-  font-size: clamp(3rem, 5.5vw, 5.2rem);
+  font-size: clamp(3rem, 4.8vw, 4.6rem);
   line-height: 0.95;
   letter-spacing: 1px;
   color: var(--text-white);
 }
 
-.action-subtitle {
+.harbor-sub-location {
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--crimson-light);
+}
+
+.harbor-features-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 20px;
+}
+
+.h-feature {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hf-tag {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--gold-accent);
+}
+
+.hf-desc {
+  font-size: 0.96rem;
+  color: var(--cream-paper);
+  line-height: 1.45;
+}
+
+/* ==========================================================================
+   CENA 06: FINAL SCENE — THE TICKET COUNTER (FECHAMENTO DIRETO AO PONTO)
+   ========================================================================== */
+.scene-final {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  background: radial-gradient(circle at 50% 15%, #500609 0%, #060506 80%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 100px 48px 40px 48px;
+  z-index: 20;
+}
+
+.final-container {
+  max-width: 1050px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 24px;
+}
+
+.final-kanji-crest {
+  font-family: var(--font-display);
+  font-size: 5.5rem;
+  color: var(--gold-accent);
+  letter-spacing: 6px;
+  text-shadow: 0 0 40px rgba(245, 184, 46, 0.5);
+  line-height: 1;
+}
+
+.final-kicker {
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: var(--crimson-light);
+  text-transform: uppercase;
+}
+
+.final-manifesto-title {
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 5.8vw, 5.4rem);
+  line-height: 0.95;
+  letter-spacing: 1px;
+  color: var(--text-white);
+}
+
+.final-manifesto-sub {
   font-size: 1.15rem;
   color: var(--cream-paper);
-  max-width: 620px;
+  max-width: 640px;
   line-height: 1.55;
 }
 
-.action-buttons-group {
+.final-actions-dock {
   display: flex;
   gap: 20px;
   margin-top: 16px;
@@ -1054,63 +1167,84 @@ body {
   justify-content: center;
 }
 
-.btn-primary-giant {
-  background-color: var(--gold-accent);
-  color: var(--black-pure);
+.btn-ticket-primary {
+  background: #f5b82e;
+  color: #000000;
   text-decoration: none;
   font-family: var(--font-display);
-  font-size: 1.45rem;
-  letter-spacing: 1.5px;
-  padding: 20px 36px;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  transition: all 0.25s ease;
-  box-shadow: 0 10px 35px rgba(245, 184, 46, 0.4);
-}
-
-.btn-primary-giant:hover {
-  background-color: var(--gold-hover);
-  transform: translateY(-3px);
-  box-shadow: 0 15px 45px rgba(245, 184, 46, 0.55);
-}
-
-.btn-secondary-giant {
-  background-color: transparent;
-  color: var(--text-white);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  text-decoration: none;
-  font-family: var(--font-display);
-  font-size: 1.45rem;
-  letter-spacing: 1.5px;
-  padding: 20px 36px;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  transition: all 0.25s ease;
-}
-
-.btn-secondary-giant:hover {
-  border-color: var(--cream-paper);
-  background-color: rgba(255, 255, 255, 0.08);
-}
-
-.btn-arrow {
   font-size: 1.6rem;
-  line-height: 1;
+  letter-spacing: 1.5px;
+  padding: 22px 42px;
+  border-radius: 6px;
+  box-shadow: 0 15px 40px rgba(245, 184, 46, 0.45);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  transition: all 0.25s ease;
+}
+
+.btn-ticket-primary:hover {
+  background: #ffd05b;
+  transform: translate3d(0, -3px, 0);
+  box-shadow: 0 22px 55px rgba(245, 184, 46, 0.65);
+}
+
+.btn-ticket-secondary {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 1.5px;
+  padding: 22px 36px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.25s ease;
+}
+
+.btn-ticket-secondary:hover {
+  border-color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.ticket-icon {
+  font-size: 1.4rem;
+}
+
+.ticket-arrow {
+  font-size: 1.6rem;
+}
+
+.final-stamp-summary {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 24px;
+}
+
+.dot-sep {
+  color: var(--crimson-light);
 }
 
 /* MINIMAL FOOTER */
-.minimal-footer {
+.final-minimal-footer {
+  width: 100%;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   padding-top: 32px;
   max-width: 1300px;
   margin: 0 auto;
 }
 
-.footer-content {
+.footer-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1118,15 +1252,7 @@ body {
   color: rgba(255, 255, 255, 0.6);
 }
 
-.footer-left {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  text-align: left;
-}
-
-.footer-brand {
-  color: var(--text-white);
+.f-copy {
   font-weight: 700;
   letter-spacing: 1px;
 }
@@ -1180,5 +1306,121 @@ body {
 
   .handoff-section {
     padding: 50px 20px;
+  }
+
+  /* SCENE 02 MOBILE */
+  .scene-dispatch {
+    height: auto;
+    min-height: 100vh;
+  }
+  .dispatch-viewport {
+    position: relative;
+    height: auto;
+    padding: 80px 20px;
+  }
+  .dispatch-counter-surface {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .counter-rail-track {
+    display: none;
+  }
+  .tray-assembly {
+    position: relative;
+    width: 100%;
+    height: 380px;
+    transform: none !important;
+  }
+  .dispatch-editorial-lockup {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+
+  /* SCENE 03 MOBILE */
+  .scene-trinity {
+    height: auto;
+  }
+  .trinity-viewport {
+    position: relative;
+    height: auto;
+  }
+  .trinity-slits-container {
+    flex-direction: column;
+    height: auto;
+  }
+  .slit-panel {
+    height: 70vh;
+    flex: none !important;
+    width: 100%;
+    border-right: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+  }
+  .slit-desc, .slit-action {
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto !important;
+  }
+
+  /* SCENE 04 MOBILE */
+  .scene-monolith {
+    height: auto;
+  }
+  .monolith-viewport {
+    position: relative;
+    height: auto;
+    padding: 100px 20px;
+  }
+  .word-slice .inner {
+    transform: none !important;
+  }
+
+  /* SCENE 05 MOBILE */
+  .scene-harbor {
+    height: auto;
+  }
+  .harbor-viewport {
+    position: relative;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .harbor-backdrop-photo {
+    position: relative;
+    height: 350px;
+  }
+  .harbor-img {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform: none !important;
+  }
+  .harbor-scrim-left {
+    display: none;
+  }
+  .harbor-station-sign {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    padding: 30px 20px 60px 20px;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* SCENE 06 MOBILE */
+  .final-actions-dock {
+    flex-direction: column;
+    width: 100%;
+  }
+  .btn-ticket-primary, .btn-ticket-secondary {
+    width: 100%;
+    justify-content: center;
   }
 }

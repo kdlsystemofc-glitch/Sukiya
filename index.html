@@ -157,52 +157,31 @@
     </main>
 
     <!-- ==========================================================================
-         CENA 02: THE SPEED COUNTER RHYTHM (O RITMO DO BALCÃO EM TÓQUIO)
-         Monumento tipográfico + Fotografia tátil de bandeja e hashi em composição assimétrica
+         CENA 02: THE SPEED DISPATCH (A MECÂNICA DOS 180 SEGUNDOS)
          ========================================================================== -->
-    <section class="scene-counter" id="sceneCounter" aria-label="A Filosofia do Balcão Sukiya">
-      <div class="counter-atmosphere">
-        <div class="counter-giant-type" aria-hidden="true">SUKIYA • CENTRO • SBC</div>
-        <div class="counter-grid">
-          <div class="counter-col-media">
-            <div class="media-frame parallax-frame">
-              <img src="imagens/621687794_18086618480468713_7527930260290207422_n.jpg" alt="Bandeja de Donburi com Hashi Sukiya no balcão" class="scene-img" />
-              <div class="media-overlay-subtle"></div>
+    <section class="scene-dispatch" id="sceneDispatch" data-scene="2">
+      <div class="dispatch-viewport">
+        <div class="dispatch-counter-surface" id="counterSurface">
+          <div class="counter-rail-track" id="railTrack"></div>
+          <div class="counter-watermark-time" id="counterTimer">180s</div>
+          <div class="tray-assembly" id="trayAssembly">
+            <div class="tray-media-frame">
+              <img src="imagens/621687794_18086618480468713_7527930260290207422_n.jpg" alt="Bandeja de Donburi Sukiya servida no balcão" class="tray-photo" />
+              <div class="tray-rim-shadow"></div>
             </div>
-            <div class="caption-stamp">
-              <span class="stamp-code">01 // TRADIÇÃO EM SÃO BERNARDO</span>
-              <span class="stamp-text">Rua Marechal Deodoro, 605 — Preparo contínuo e serviço imediato no Centro.</span>
+            <div class="tray-tag-chopsticks">
+              <span class="chopsticks-brand">SUKIYA TOKYO BOWLS & NOODLES</span>
+              <span class="chopsticks-sub">CENTRO DE SBC • PREPARO CONTÍNUO</span>
             </div>
           </div>
-          
-          <div class="counter-col-content">
-            <span class="scene-eyebrow">A CULTURA DO DONBURI DE VERDADE</span>
-            <h2 class="scene-title">
-              O JAPONÊS QUE NÃO É CRU.<br />
-              <span class="gold-text">O JAPONÊS DO DIA A DIA.</span>
-            </h2>
-            <div class="scene-prose">
-              <p>
-                No Japão, o Sukiya é o ponto de encontro de quem quer comer muito bem sem perder tempo. Não existe cerimônia nem formalismo desnecessário: a comida chega fumegando em minutos.
-              </p>
-              <p>
-                Carne fatiada na espessura certa, cozida lentamente no dashi com cebolas adocicadas, servida generosamente sobre uma tigela de arroz japonês impecável. É sustância, calor e autenticidade.
-              </p>
-            </div>
-            
-            <div class="counter-stats-ribbon">
-              <div class="stat-unit">
-                <span class="stat-num">3.094+</span>
-                <span class="stat-lbl">Clientes atendidos & avaliações reais</span>
-              </div>
-              <div class="stat-unit">
-                <span class="stat-num">R$ 40–60</span>
-                <span class="stat-lbl">Faixa média de consumo com fartura</span>
-              </div>
-              <div class="stat-unit">
-                <span class="stat-num">22:40</span>
-                <span class="stat-lbl">Aberto todos os dias até tarde</span>
-              </div>
+          <div class="dispatch-editorial-lockup" id="dispatchEditorial">
+            <span class="editorial-eyebrow">A CULTURA DO BALCÃO EXPRESSO</span>
+            <h2 class="editorial-headline">O JAPONÊS QUE NÃO É CRU.<br /><span class="gold-text">DIRETO AO PONTO. FUMEGANTE.</span></h2>
+            <p class="editorial-body">Sem cerimônias e sem espera. Carne selecionada, cozida em caldo dashi tradicional e servida em tigelas fartas com arroz japonês quente.</p>
+            <div class="dispatch-metrics-row">
+              <div class="metric-block"><span class="m-val">3.094+</span><span class="m-lbl">AVALIAÇÕES REAIS NO GOOGLE</span></div>
+              <div class="metric-block"><span class="m-val">R$ 40–60</span><span class="m-lbl">MÉDIA POR PESSOA</span></div>
+              <div class="metric-block"><span class="m-val">22:40</span><span class="m-lbl">ABERTO TODOS OS DIAS</span></div>
             </div>
           </div>
         </div>
@@ -210,174 +189,165 @@
     </section>
 
     <!-- ==========================================================================
-         CENA 03: THE TRINITY MENU SYSTEM (EDITORIAL GOURMET SEM CARDS)
-         Lista tipográfica monumental interativa com troca dinâmica de crop macro full-bleed
+         CENA 03: THE TRINITY APERTURE (A ANATOMIA DOS 3 CLÁSSICOS)
          ========================================================================== -->
-    <section class="scene-menu" id="sceneMenu" aria-label="Especialidades da Casa">
-      <div class="menu-stage">
-        <div class="menu-canvas">
-          <div class="menu-intro">
-            <span class="scene-eyebrow">OS PILARES DA CASA</span>
-            <h2 class="scene-title-large">ESCOLHA SEU BOWL</h2>
+    <section class="scene-trinity" id="sceneTrinity" data-scene="3">
+      <div class="trinity-viewport">
+        <div class="trinity-slits-container" id="slitsContainer">
+          <!-- SLIT 01: GYUDON -->
+          <div class="slit-panel slit-gyudon" data-slit="1">
+            <div class="slit-media-wrap">
+              <img src="imagens/202006161509_bBDT_s@2x.avif" alt="Gyūdon Tradicional Sukiya" class="slit-img" />
+              <div class="slit-overlay"></div>
+            </div>
+            <div class="slit-content">
+              <span class="slit-num">01</span>
+              <h3 class="slit-title">GYŪDON</h3>
+              <p class="slit-desc">Carne bovina macia e cebola fatiadas finamente, cozidas no autêntico caldo dashi sobre arroz japonês vaporizado.</p>
+              <a href="https://wa.me/5511976580784?text=Quero%20pedir%20o%20Gyudon%20Sukiya" target="_blank" rel="noopener noreferrer" class="slit-action">PEDIR ESTE →</a>
+            </div>
           </div>
-          
-          <div class="menu-list-editorial">
-            <article class="menu-row active" data-bg="imagens/imgi_8_620395924_18055986089355409_5752489962997242887_n.jpg">
-              <div class="row-index">01</div>
-              <div class="row-main">
-                <div class="row-headline">
-                  <h3 class="row-name">KATSU CURRY</h3>
-                  <span class="row-badge">ESPECIAL DA CASA</span>
-                </div>
-                <p class="row-desc">Costeleta suína crocante empanada na farinha panko japonesa sobre arroz coberto com molho curry espesso, aromático e temperado à perfeição.</p>
-              </div>
-              <div class="row-action">
-                <a href="https://wa.me/5511976580784?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20o%20Katsu%20Curry" target="_blank" rel="noopener noreferrer" class="row-btn">PEDIR →</a>
-              </div>
-            </article>
 
-            <article class="menu-row" data-bg="imagens/202006161509_bBDT_s@2x.avif">
-              <div class="row-index">02</div>
-              <div class="row-main">
-                <div class="row-headline">
-                  <h3 class="row-name">GYŪDON CLÁSSICO & QUEIJO CREMOSO</h3>
-                  <span class="row-badge">MAIS PEDIDO</span>
-                </div>
-                <p class="row-desc">O ícone absoluto do Sukiya no mundo: carne bovina macia fatiada finamente, cozida com cebola no molho tarê e servida com opção de camada farta de queijo cremoso.</p>
-              </div>
-              <div class="row-action">
-                <a href="https://wa.me/5511976580784?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20o%20Gyudon" target="_blank" rel="noopener noreferrer" class="row-btn">PEDIR →</a>
-              </div>
-            </article>
+          <!-- SLIT 02: KATSU CURRY -->
+          <div class="slit-panel slit-curry" data-slit="2">
+            <div class="slit-media-wrap">
+              <img src="imagens/imgi_8_620395924_18055986089355409_5752489962997242887_n.jpg" alt="Katsu Curry Crocante" class="slit-img" />
+              <div class="slit-overlay"></div>
+            </div>
+            <div class="slit-content">
+              <span class="slit-num">02</span>
+              <h3 class="slit-title">KATSU CURRY</h3>
+              <p class="slit-desc">Lombo suíno empanado no panko com molho curry japonês artesanal aromático, denso e picância equilibrada.</p>
+              <a href="https://wa.me/5511976580784?text=Quero%20pedir%20o%20Katsu%20Curry%20Sukiya" target="_blank" rel="noopener noreferrer" class="slit-action">PEDIR ESTE →</a>
+            </div>
+          </div>
 
-            <article class="menu-row" data-bg="imagens/imgi_11_619660889_18089277443045232_6913015923758080462_n.jpg">
-              <div class="row-index">03</div>
-              <div class="row-main">
-                <div class="row-headline">
-                  <h3 class="row-name">KARAAGUE DON QUEIJO</h3>
-                  <span class="row-badge">MAIS PEDIDO</span>
-                </div>
-                <p class="row-desc">Pedaços selecionados de frango crocante marinado ao estilo japonês (karaague) com shoyu e gengibre, salpicados com cebolinha fresca, ovo e queijo derretido.</p>
-              </div>
-              <div class="row-action">
-                <a href="https://wa.me/5511976580784?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20o%20Karaague%20Don" target="_blank" rel="noopener noreferrer" class="row-btn">PEDIR →</a>
-              </div>
-            </article>
-
-            <article class="menu-row" data-bg="imagens/imgi_10_619663245_18092242219955613_737170559548406358_n.jpg">
-              <div class="row-index">04</div>
-              <div class="row-main">
-                <div class="row-headline">
-                  <h3 class="row-name">TOKYO RAMEN & COMBOS</h3>
-                  <span class="row-badge">CALDO QUENTE</span>
-                </div>
-                <p class="row-desc">Caldo dashi artesanal rico, macarrão fresco cozido al dente, chashu suculento, missoshiro, gyoza dourada e acompanhamentos tradicionais.</p>
-              </div>
-              <div class="row-action">
-                <a href="https://wa.me/5511976580784?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20o%20Ramen" target="_blank" rel="noopener noreferrer" class="row-btn">PEDIR →</a>
-              </div>
-            </article>
+          <!-- SLIT 03: KARAAGUE DON -->
+          <div class="slit-panel slit-karaague" data-slit="3">
+            <div class="slit-media-wrap">
+              <img src="imagens/imgi_11_619660889_18089277443045232_6913015923758080462_n.jpg" alt="Karaague Don com Cebolinha e Ovo" class="slit-img" />
+              <div class="slit-overlay"></div>
+            </div>
+            <div class="slit-content">
+              <span class="slit-num">03</span>
+              <h3 class="slit-title">KARAAGUE DON</h3>
+              <p class="slit-desc">Sobrecoxa de frango frita ao estilo de Tóquio, marinada no shoyu com gengibre fresco, cebolinha crocante e ovos batidos.</p>
+              <a href="https://wa.me/5511976580784?text=Quero%20pedir%20o%20Karaague%20Don%20Sukiya" target="_blank" rel="noopener noreferrer" class="slit-action">PEDIR ESTE →</a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ==========================================================================
-         CENA 04: THE CONTRAST MANIFESTO (PROVA SOCIAL COMO FRASE MONUMENTAL)
-         Tipografia gigante cinemática que atravessa o viewport, voz real do cliente
+         CENA 04: THE SOCIAL MONOLITH (A PROVA SOCIAL MONUMENTAL)
          ========================================================================== -->
-    <section class="scene-quote" id="sceneQuote" aria-label="Depoimento Real de Cliente">
-      <div class="quote-container">
-        <div class="quote-watermark" aria-hidden="true">4.3 ★ GOOGLE MAPS</div>
-        <div class="quote-content">
-          <p class="quote-mark">“</p>
-          <blockquote class="quote-text">
-            Comida japonesa diferente e deliciosa, nada de sushi e essas coisas cruas. Porções generosas e preço justo no centro de SBC.
+    <section class="scene-monolith" id="sceneMonolith" data-scene="4">
+      <div class="monolith-viewport">
+        <div class="monolith-backdrop-score" id="backdropScore" aria-hidden="true">3.094</div>
+        <div class="monolith-quote-wrapper" id="quoteWrapper">
+          <div class="monolith-kicker">AVALIAÇÃO VERIFICADA NO GOOGLE MAPS // 4,3 ★★★★★</div>
+          <blockquote class="monolith-phrase" id="monolithPhrase">
+            <span class="word-slice"><span class="inner">“COMIDA</span></span>
+            <span class="word-slice"><span class="inner">JAPONESA</span></span>
+            <span class="word-slice"><span class="inner highlight">DIFERENTE</span></span>
+            <span class="word-slice"><span class="inner">E</span></span>
+            <span class="word-slice"><span class="inner highlight">DELICIOSA,</span></span>
+            <br />
+            <span class="word-slice"><span class="inner cross-through">NADA DE PEIXE CRU</span></span>
+            <span class="word-slice"><span class="inner">OU RODÍZIO DEMORADO.</span></span>
+            <br />
+            <span class="word-slice"><span class="inner gold-text">FARTURA PURA</span></span>
+            <span class="word-slice"><span class="inner">NO CENTRO DE SBC.”</span></span>
           </blockquote>
-          <footer class="quote-author">
-            <cite>AVALIAÇÃO VERIFICADA NO GOOGLE MAPS</cite>
-            <span class="quote-note">Entre mais de 3.090 clientes no Sukiya São Bernardo</span>
-          </footer>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         CENA 05: CENTRO SÃO BERNARDO LOCATION DOCK
-         Fotografia real de fachada/interior com dados precisos de visitação e retirada
-         ========================================================================== -->
-    <section class="scene-location" id="sceneLocation" aria-label="Localização e Atendimento">
-      <div class="location-grid">
-        <div class="location-visual">
-          <img src="imagens/imgi_6_620845851_18091493437825576_5347141240222338434_n.jpg" alt="Interior acolhedor do Sukiya São Bernardo com luminárias e mesas" class="location-img" />
-          <div class="location-pill-overlay">
-            <span class="pulse-dot"></span>
-            <span>ABERTO HOJE ATÉ 22:40</span>
-          </div>
-        </div>
-
-        <div class="location-details">
-          <span class="scene-eyebrow">NO CORAÇÃO DA CIDADE</span>
-          <h2 class="scene-title">BALCÃO, MESAS & RETIRADA EXPRESSA</h2>
-          
-          <div class="location-info-list">
-            <div class="info-block">
-              <span class="info-label">ENDEREÇO OFICIAL</span>
-              <p class="info-val">Rua Marechal Deodoro, 605 — Centro, São Bernardo do Campo - SP, 09710-010</p>
-              <span class="info-sub">Ponto de referência: Próximo aos principais comércios do Centro de SBC</span>
-            </div>
-
-            <div class="info-block">
-              <span class="info-label">MODALIDADES DE SERVIÇO</span>
-              <p class="info-val">Refeição no local • Para viagem / Retirada no Balcão • Pedidos diretos</p>
-            </div>
-
-            <div class="info-block">
-              <span class="info-label">INCLUSÃO & COMUNIDADE</span>
-              <p class="info-val">Espaço seguro e acolhedor à comunidade LGBTQ+ • Ambiente familiar</p>
-            </div>
+          <div class="monolith-citation">
+            <span class="cite-author">CLIENTES REAIS NO SUKIYA MARECHAL DEODORO</span>
+            <span class="cite-details">Baseado em mais de três mil experiências registradas no Centro de São Bernardo do Campo</span>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ==========================================================================
-         CENA 06: FINAL DESTINATION ACTION (FECHAMENTO DIRETO AO PONTO)
-         Grande bloco com chamada de ação real, WhatsApp direto e rodapé mínimo
+         CENA 05: THE HARBOR AT MARECHAL DEODORO (A CASA REAL NO CENTRO)
          ========================================================================== -->
-    <section class="scene-action" id="sceneAction" aria-label="Fazer Pedido ou Visitar">
-      <div class="action-container">
-        <div class="action-crest">すき家</div>
-        <h2 class="action-title">
-          SEU BOWL QUENTE ESTÁ PRONTO.<br />
-          <span class="gold-text">PEÇA AGORA OU PASSE NO BALCÃO.</span>
+    <section class="scene-harbor" id="sceneHarbor" data-scene="5">
+      <div class="harbor-viewport">
+        <div class="harbor-backdrop-photo">
+          <img src="imagens/imgi_6_620845851_18091493437825576_5347141240222338434_n.jpg" alt="Fachada noturna iluminada do Sukiya na Rua Marechal Deodoro" class="harbor-img" id="harborPhoto" />
+          <div class="harbor-scrim-left"></div>
+          <div class="harbor-scrim-top"></div>
+        </div>
+
+        <div class="harbor-station-sign" id="harborSign">
+          <div class="sign-pill-live">
+            <span class="live-dot"></span>
+            <span class="live-text">ABERTO HOJE // ALMOÇO & JANTAR ATÉ 22:40</span>
+          </div>
+          <h2 class="harbor-title">RUA MARECHAL DEODORO, 605</h2>
+          <div class="harbor-sub-location">CENTRO • SÃO BERNARDO DO CAMPO — CEP 09710-010</div>
+
+          <div class="harbor-features-grid">
+            <div class="h-feature">
+              <span class="hf-tag">SERVIÇO FÍSICO</span>
+              <p class="hf-desc">Salão amplo e balcão tradicional com serviço imediato para almoço e jantar.</p>
+            </div>
+            <div class="h-feature">
+              <span class="hf-tag">RETIRADA EXPRESSA</span>
+              <p class="hf-desc">Peça antecipado pelo WhatsApp e retire embalado sem esperar na fila.</p>
+            </div>
+            <div class="h-feature">
+              <span class="hf-tag">ESPAÇO SEGURO</span>
+              <p class="hf-desc">Ambiente acolhedor à comunidade LGBTQ+, seguro para famílias e amigos.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CENA 06: FINAL SCENE — THE TICKET COUNTER (FECHAMENTO DIRETO AO PONTO)
+         ========================================================================== -->
+    <section class="scene-final" id="sceneFinal" data-scene="6">
+      <div class="final-container">
+        <div class="final-kanji-crest">すき家</div>
+        <div class="final-kicker">SEU BOWL ESTÁ FUMEGANDO NO BALCÃO</div>
+        <h2 class="final-manifesto-title">
+          FARTURA JAPONESA.<br />
+          <span class="gold-text">PEÇA PELO WHATSAPP OU VENHA AO BALCÃO.</span>
         </h2>
-        <p class="action-subtitle">
-          Atendimento direto pelo WhatsApp para retirada sem fila ou consulte o cardápio oficial de balcão.
+        <p class="final-manifesto-sub">
+          Atendimento direto pelo WhatsApp para retirada sem fila ou atendimento presencial na Rua Marechal Deodoro, 605.
         </p>
 
-        <div class="action-buttons-group">
-          <a href="https://wa.me/5511976580784?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20um%20pedido%20no%20Sukiya%20S%C3%A3o%20Bernardo" target="_blank" rel="noopener noreferrer" class="btn-primary-giant">
-            <span>PEDIR NO WHATSAPP: (11) 97658-0784</span>
-            <span class="btn-arrow">→</span>
+        <div class="final-actions-dock">
+          <a href="https://wa.me/5511976580784?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20um%20pedido%20no%20Sukiya%20S%C3%A3o%20Bernardo" target="_blank" rel="noopener noreferrer" class="btn-ticket-primary">
+            <span class="ticket-icon">⚡</span>
+            <span class="ticket-label">PEDIR PELO WHATSAPP // (11) 97658-0784</span>
+            <span class="ticket-arrow">→</span>
           </a>
-          <a href="https://maps.google.com/?q=Rua+Marechal+Deodoro,+605+Centro+São+Bernardo+do+Campo" target="_blank" rel="noopener noreferrer" class="btn-secondary-giant">
-            <span>VER ROTA NO GOOGLE MAPS</span>
-            <span class="btn-arrow">↗</span>
+
+          <a href="https://maps.google.com/?q=Rua+Marechal+Deodoro,+605+Centro+São+Bernardo+do+Campo" target="_blank" rel="noopener noreferrer" class="btn-ticket-secondary">
+            <span class="ticket-label">TRAÇAR ROTA NO GOOGLE MAPS</span>
+            <span class="ticket-arrow">↗</span>
           </a>
+        </div>
+
+        <div class="final-stamp-summary">
+          <span>R. MARECHAL DEODORO, 605 • CENTRO, SBC</span>
+          <span class="dot-sep">•</span>
+          <span>ABERTO ATÉ 22:40</span>
+          <span class="dot-sep">•</span>
+          <span>MÉDIA R$ 40–60</span>
+          <span class="dot-sep">•</span>
+          <span>ESPAÇO SEGURO LGBTQ+</span>
         </div>
       </div>
 
-      <!-- FOOTER MÍNIMO INSTITUCIONAL -->
-      <footer class="minimal-footer">
-        <div class="footer-content">
-          <div class="footer-left">
-            <span class="footer-brand">SUKIYA SÃO BERNARDO DO CAMPO</span>
-            <span class="footer-legal">R. Marechal Deodoro, 605 — Centro, SBC. Todos os direitos reservados.</span>
-          </div>
-          <div class="footer-right">
-            <span>Autêntica comida japonesa de balcão.</span>
-          </div>
+      <footer class="final-minimal-footer">
+        <div class="footer-row">
+          <span class="f-copy">© SUKIYA SÃO BERNARDO DO CAMPO — AUTÊNTICA COMIDA JAPONESA DE BALCÃO</span>
+          <span class="f-info">TOKYO BOWLS & NOODLES</span>
         </div>
       </footer>
     </section>

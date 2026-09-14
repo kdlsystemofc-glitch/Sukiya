@@ -258,112 +258,258 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 8.5);
 
     // ----------------------------------------------------
-    // SCENE 02: SPEED COUNTER PARALLAX
+    // SCENE 02: THE SPEED DISPATCH (A MECÂNICA DOS 180 SEGUNDOS)
+    // Master Build Spec: Pin 1500px, Tray travel 105vw -> 4vw -> -35vw, Countdown timer, Editorial lockup
     // ----------------------------------------------------
-    gsap.from("#sceneCounter .media-frame", {
+    const dispatchTL = gsap.timeline({
       scrollTrigger: {
-        trigger: "#sceneCounter",
-        start: "top 80%",
-        end: "bottom top",
-        scrub: 1
-      },
-      y: 50,
+        trigger: "#sceneDispatch",
+        start: "top top",
+        end: "+=1500",
+        pin: ".dispatch-viewport",
+        scrub: 0.5,
+        anticipatePin: 1
+      }
+    });
+
+    // Phase 1 (0.0 -> 0.45): Tray incurs 105vw -> 4vw, countdown 180s -> 000s
+    dispatchTL
+      .fromTo("#trayAssembly", {
+        x: "105vw",
+        y: "12vh",
+        scale: 0.92,
+        opacity: 1
+      }, {
+        x: "4vw",
+        y: "12vh",
+        scale: 1.0,
+        ease: "power1.out",
+        duration: 4.5
+      }, 0)
+      .to("#counterTimer", {
+        opacity: 0.06,
+        duration: 4.5,
+        ease: "power1.out",
+        onUpdate: function() {
+          const p = dispatchTL.progress();
+          if (p <= 0.45) {
+            const sec = Math.max(0, Math.round(180 * (1 - p / 0.45)));
+            const timerEl = document.getElementById("counterTimer");
+            if (timerEl) timerEl.textContent = String(sec).padStart(3, '0') + "s";
+          }
+        }
+      }, 0);
+
+    // Phase 2 (0.40 -> 0.75): Editorial reveal
+    dispatchTL.fromTo("#dispatchEditorial", {
+      y: 40,
+      opacity: 0,
+      clipPath: "inset(0 0 100% 0)"
+    }, {
+      y: 0,
+      opacity: 1,
+      clipPath: "inset(0 0 0% 0)",
+      duration: 3.5,
+      ease: "power2.out"
+    }, 4.0);
+
+    // Phase 3 (0.80 -> 1.0): Handoff transition
+    dispatchTL
+      .to("#trayAssembly", {
+        x: "-35vw",
+        scale: 1.04,
+        opacity: 0.25,
+        duration: 2.0,
+        ease: "power2.in"
+      }, 8.0)
+      .to("#dispatchEditorial", {
+        y: -60,
+        opacity: 0,
+        duration: 2.0,
+        ease: "power2.in"
+      }, 8.0);
+
+    // ----------------------------------------------------
+    // SCENE 03: THE TRINITY APERTURE (A ANATOMIA DOS 3 CLÁSSICOS)
+    // Master Build Spec: Pin 2000px, 3 Slits flex expansion 6.8 / 1.6 / 1.6 per plate
+    // ----------------------------------------------------
+    const trinityTL = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#sceneTrinity",
+        start: "top top",
+        end: "+=2000",
+        pin: ".trinity-viewport",
+        scrub: 0.5,
+        anticipatePin: 1
+      }
+    });
+
+    const slit1 = document.querySelector(".slit-gyudon");
+    const slit2 = document.querySelector(".slit-curry");
+    const slit3 = document.querySelector(".slit-karaague");
+
+    // Init state (0.0 -> 0.20): Equal slits 3.33 each
+    // Focus Plate 01: Gyūdon (0.25 -> 0.45)
+    trinityTL
+      .to(slit1, { flex: 6.8, duration: 2.5, ease: "power2.out" }, 1.0)
+      .to(slit2, { flex: 1.6, duration: 2.5, ease: "power2.out" }, 1.0)
+      .to(slit3, { flex: 1.6, duration: 2.5, ease: "power2.out" }, 1.0)
+      .to(slit1.querySelector(".slit-desc"), { opacity: 1, y: 0, pointerEvents: "auto", duration: 1.5 }, 1.5)
+      .to(slit1.querySelector(".slit-action"), { opacity: 1, y: 0, pointerEvents: "auto", duration: 1.5 }, 1.5);
+
+    // Focus Plate 02: Katsu Curry (0.50 -> 0.70)
+    trinityTL
+      .to(slit1.querySelector(".slit-desc"), { opacity: 0, y: 20, pointerEvents: "none", duration: 1.0 }, 4.0)
+      .to(slit1.querySelector(".slit-action"), { opacity: 0, y: 20, pointerEvents: "none", duration: 1.0 }, 4.0)
+      .to(slit1, { flex: 1.6, duration: 2.5, ease: "power2.inOut" }, 4.0)
+      .to(slit2, { flex: 6.8, duration: 2.5, ease: "power2.inOut" }, 4.0)
+      .to(slit3, { flex: 1.6, duration: 2.5, ease: "power2.inOut" }, 4.0)
+      .to(slit2.querySelector(".slit-desc"), { opacity: 1, y: 0, pointerEvents: "auto", duration: 1.5 }, 4.8)
+      .to(slit2.querySelector(".slit-action"), { opacity: 1, y: 0, pointerEvents: "auto", duration: 1.5 }, 4.8);
+
+    // Focus Plate 03: Karaague Don (0.75 -> 0.95)
+    trinityTL
+      .to(slit2.querySelector(".slit-desc"), { opacity: 0, y: 20, pointerEvents: "none", duration: 1.0 }, 7.0)
+      .to(slit2.querySelector(".slit-action"), { opacity: 0, y: 20, pointerEvents: "none", duration: 1.0 }, 7.0)
+      .to(slit1, { flex: 1.6, duration: 2.5, ease: "power2.inOut" }, 7.0)
+      .to(slit2, { flex: 1.6, duration: 2.5, ease: "power2.inOut" }, 7.0)
+      .to(slit3, { flex: 6.8, duration: 2.5, ease: "power2.inOut" }, 7.0)
+      .to(slit3.querySelector(".slit-desc"), { opacity: 1, y: 0, pointerEvents: "auto", duration: 1.5 }, 7.8)
+      .to(slit3.querySelector(".slit-action"), { opacity: 1, y: 0, pointerEvents: "auto", duration: 1.5 }, 7.8);
+
+    // Handoff (0.95 -> 1.0): Dim slits
+    trinityTL.to([slit1, slit2, slit3], {
+      filter: "brightness(0.25)",
+      duration: 1.0,
+      ease: "power1.in"
+    }, 9.2);
+
+    // ----------------------------------------------------
+    // SCENE 04: THE SOCIAL MONOLITH (A PROVA SOCIAL MONUMENTAL)
+    // Master Build Spec: Pin 1200px, 3.094 scale 1.15 -> 1.0, word slices mask reveal, red cross-through scaleX
+    // ----------------------------------------------------
+    const monolithTL = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#sceneMonolith",
+        start: "top top",
+        end: "+=1200",
+        pin: ".monolith-viewport",
+        scrub: 0.5,
+        anticipatePin: 1
+      }
+    });
+
+    // 0.0 -> 0.35: Backdrop score scale 1.15 -> 1.0, word-slices translate3d(0, 110%, 0) -> (0,0,0)
+    monolithTL
+      .fromTo("#backdropScore", {
+        scale: 1.15,
+        opacity: 0.02
+      }, {
+        scale: 1.0,
+        opacity: 0.06,
+        duration: 3.5,
+        ease: "power2.out"
+      }, 0)
+      .fromTo(".word-slice .inner", {
+        y: "110%"
+      }, {
+        y: "0%",
+        duration: 3.0,
+        stagger: 0.15,
+        ease: "power3.out"
+      }, 0.5);
+
+    // 0.35 -> 0.65: Cross-through red line expands scaleX(1)
+    const crossThroughEl = document.querySelector(".word-slice .inner.cross-through");
+    if (crossThroughEl) {
+      monolithTL.to(crossThroughEl, {
+        "--cross-scale": 1,
+        duration: 3.0,
+        ease: "power2.out",
+        onUpdate: function() {
+          const prog = this.progress();
+          crossThroughEl.style.setProperty('--line-w', (prog * 100) + '%');
+        }
+      }, 3.5);
+    }
+
+    // 0.70 -> 1.0: Monolith exit fade and scale
+    monolithTL.to("#quoteWrapper", {
+      scale: 0.95,
+      y: -40,
+      opacity: 0,
+      duration: 3.0,
+      ease: "power2.in"
+    }, 7.0);
+
+    // ----------------------------------------------------
+    // SCENE 05: THE HARBOR AT MARECHAL DEODORO (A CASA REAL NO CENTRO)
+    // Master Build Spec: Pin 1200px, Dolly-in scale 1.15 -> 1.0, Sign reveal, Scrim fade
+    // ----------------------------------------------------
+    const harborTL = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#sceneHarbor",
+        start: "top top",
+        end: "+=1200",
+        pin: ".harbor-viewport",
+        scrub: 0.5,
+        anticipatePin: 1
+      }
+    });
+
+    // 0.0 -> 0.40: Photo fade-in & Sign entrance
+    harborTL
+      .fromTo("#harborPhoto", {
+        scale: 1.15,
+        x: "2%",
+        opacity: 0.2
+      }, {
+        opacity: 1,
+        duration: 4.0,
+        ease: "power1.out"
+      }, 0)
+      .fromTo("#harborSign", {
+        y: 30,
+        opacity: 0
+      }, {
+        y: 0,
+        opacity: 1,
+        duration: 3.5,
+        ease: "power2.out"
+      }, 0.5);
+
+    // 0.40 -> 0.85: Dolly-in smoothly settles to scale 1.0
+    harborTL.to("#harborPhoto", {
+      scale: 1.0,
+      x: "0%",
+      duration: 4.5,
       ease: "none"
-    });
+    }, 4.0);
 
-    gsap.from("#sceneCounter .counter-col-content", {
+    // 0.85 -> 1.0: Exit vinheta
+    harborTL.to("#harborPhoto", {
+      filter: "brightness(0.4)",
+      duration: 1.5,
+      ease: "power1.in"
+    }, 8.5);
+
+    // ----------------------------------------------------
+    // SCENE 06: FINAL SCENE — THE TICKET COUNTER
+    // Master Build Spec: High impact Kanji crest and direct action triggers
+    // ----------------------------------------------------
+    gsap.from(".final-container", {
       scrollTrigger: {
-        trigger: "#sceneCounter",
-        start: "top 75%",
-        toggleActions: "play none none reverse"
-      },
-      y: 40,
-      opacity: 0,
-      duration: 0.9,
-      ease: "power2.out"
-    });
-
-    // ----------------------------------------------------
-    // SCENE 03: EDITORIAL MENU ROWS STAGGER & INTERACTION
-    // ----------------------------------------------------
-    gsap.from(".menu-row", {
-      scrollTrigger: {
-        trigger: "#sceneMenu",
-        start: "top 70%",
-        toggleActions: "play none none reverse"
-      },
-      y: 35,
-      opacity: 0,
-      duration: 0.7,
-      stagger: 0.12,
-      ease: "power2.out"
-    });
-
-    const menuRows = document.querySelectorAll('.menu-row');
-    menuRows.forEach(row => {
-      row.addEventListener('mouseenter', () => {
-        menuRows.forEach(r => r.classList.remove('active'));
-        row.classList.add('active');
-      });
-    });
-
-    // ----------------------------------------------------
-    // SCENE 04: MONUMENTAL QUOTE SCALE REVEAL
-    // ----------------------------------------------------
-    gsap.from("#sceneQuote .quote-content", {
-      scrollTrigger: {
-        trigger: "#sceneQuote",
-        start: "top 75%",
-        toggleActions: "play none none reverse"
-      },
-      scale: 0.94,
-      opacity: 0,
-      duration: 1.1,
-      ease: "power3.out"
-    });
-
-    // ----------------------------------------------------
-    // SCENE 05: LOCATION DOCK
-    // ----------------------------------------------------
-    gsap.from("#sceneLocation .location-visual", {
-      scrollTrigger: {
-        trigger: "#sceneLocation",
-        start: "top 75%",
-        toggleActions: "play none none reverse"
-      },
-      x: -40,
-      opacity: 0,
-      duration: 0.9,
-      ease: "power2.out"
-    });
-
-    gsap.from("#sceneLocation .location-details", {
-      scrollTrigger: {
-        trigger: "#sceneLocation",
-        start: "top 75%",
-        toggleActions: "play none none reverse"
-      },
-      x: 40,
-      opacity: 0,
-      duration: 0.9,
-      ease: "power2.out"
-    });
-
-    // ----------------------------------------------------
-    // SCENE 06: FINAL ACTION CREST
-    // ----------------------------------------------------
-    gsap.from("#sceneAction .action-container", {
-      scrollTrigger: {
-        trigger: "#sceneAction",
+        trigger: "#sceneFinal",
         start: "top 80%",
         toggleActions: "play none none reverse"
       },
       y: 40,
       opacity: 0,
-      duration: 1,
+      duration: 1.0,
       ease: "power3.out"
     });
 
   }
 
 });
+
