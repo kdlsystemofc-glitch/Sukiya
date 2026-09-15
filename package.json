@@ -1,12 +1,9 @@
-{
+﻿{
   "name": "sukiya-sbc",
   "version": "1.0.0",
-  "description": "Sukiya Sao Bernardo - Direction A",
-  "main": "app.js",
+  "private": true,
+  "description": "Sukiya Sao Bernardo do Campo - Tokyo Bowls & Noodles",
   "scripts": {
-    "capture": "node capture_proofs.js"
-  },
-  "dependencies": {
-    "playwright": "^1.63.0"
+    "start": "node server.js"
   }
 }
