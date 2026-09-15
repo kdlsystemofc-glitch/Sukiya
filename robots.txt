@@ -1,0 +1,6 @@
+﻿# robots.txt - Sukiya São Bernardo do Campo
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://sukiya-saobernardo.com.br/sitemap.xml
