@@ -133,20 +133,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 3. MASTER CINEMATIC SCROLL TIMELINE (FRAMING TRANSFORMATION)
-  if (window.gsap && window.ScrollTrigger && window.innerWidth > 1024) {
+  // 3. MASTER CINEMATIC SCROLL TIMELINE & MULTI-DEVICE ORCHESTRATION
+  if (window.gsap && window.ScrollTrigger) {
     gsap.registerPlugin(ScrollTrigger);
 
-    const masterTL = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#openingStage",
-        start: "top top",
-        end: "+=2600",
-        pin: true,
-        scrub: 0.5,
-        anticipatePin: 1
-      }
-    });
+    const mm = gsap.matchMedia();
+
+    // =========================================================================
+    // DESKTOP CINEMATIC TIMELINES (1025px+) — 100% LOCKED
+    // =========================================================================
+    mm.add("(min-width: 1025px)", () => {
+      const masterTL = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#openingStage",
+          start: "top top",
+          end: "+=2600",
+          pin: true,
+          scrub: 0.5,
+          anticipatePin: 1
+        }
+      });
 
     // ----------------------------------------------------
     // PHASE 1 (0% -> 20% scroll, t=0 -> t=2): EXPANSION INTO RED FIELD
@@ -496,23 +502,167 @@ document.addEventListener('DOMContentLoaded', () => {
       ease: "power1.in"
     }, 8.5);
 
-    // ----------------------------------------------------
-    // SCENE 06: FINAL SCENE — THE TICKET COUNTER
-    // Master Build Spec: High impact Kanji crest and direct action triggers
-    // ----------------------------------------------------
-    gsap.from(".final-container", {
-      scrollTrigger: {
-        trigger: "#sceneFinal",
-        start: "top 80%",
-        toggleActions: "play none none reverse"
-      },
-      y: 40,
-      opacity: 0,
-      duration: 1.0,
-      ease: "power3.out"
+      // ----------------------------------------------------
+      // SCENE 06: FINAL SCENE — THE TICKET COUNTER
+      // Master Build Spec: High impact Kanji crest and direct action triggers
+      // ----------------------------------------------------
+      gsap.from(".final-container", {
+        scrollTrigger: {
+          trigger: "#sceneFinal",
+          start: "top 80%",
+          toggleActions: "play none none reverse"
+        },
+        y: 40,
+        opacity: 0,
+        duration: 1.0,
+        ease: "power3.out"
+      });
+
+    });
+
+    // =========================================================================
+    // MOBILE CINEMATIC TIMELINES (max-width: 1024px)
+    // Preserves depth, timer scrub, slit focus, masked typography & photo dollys
+    // =========================================================================
+    mm.add("(max-width: 1024px)", () => {
+
+      // 1. MOBILE HERO & STAGE ENTRANCE
+      gsap.from(".stage-visual .dish-hero-photo", {
+        scale: 1.08,
+        opacity: 0.8,
+        duration: 1.2,
+        ease: "power2.out"
+      });
+
+      // 2. SCENE 02: MOBILE SPEED DISPATCH (TIMER SCRUB & TRAY DEPTH)
+      const dispatchTimerObj = { val: 180 };
+      const mobileDispatchTimerEl = document.getElementById("counterTimer");
+
+      const mobileDispatchTL = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#sceneDispatch",
+          start: "top 80%",
+          end: "bottom 60%",
+          scrub: 0.6
+        }
+      });
+
+      mobileDispatchTL
+        .fromTo(".tray-assembly", 
+          { y: 60, scale: 0.94, opacity: 0.6 },
+          { y: 0, scale: 1.0, opacity: 1.0, ease: "power2.out", duration: 2 }
+        )
+        .fromTo(".dispatch-editorial-lockup",
+          { y: 30, opacity: 0.4 },
+          { y: 0, opacity: 1.0, ease: "power1.out", duration: 1.5 },
+          0.3
+        )
+        .to(dispatchTimerObj, {
+          val: 0,
+          duration: 3,
+          ease: "none",
+          onUpdate: () => {
+            if (mobileDispatchTimerEl) {
+              const current = Math.round(dispatchTimerObj.val);
+              mobileDispatchTimerEl.textContent = String(current).padStart(3, '0') + 's';
+            }
+          }
+        }, 0);
+
+      // 3. SCENE 03: MOBILE TRINITY VERTICAL FOCUS SCRUB
+      const slitPanels = gsap.utils.toArray(".slit-panel");
+      slitPanels.forEach((panel) => {
+        const bgImg = panel.querySelector(".slit-bg-img");
+        const slitTitle = panel.querySelector(".slit-title");
+        const slitDesc = panel.querySelector(".slit-desc");
+        const slitAction = panel.querySelector(".slit-action");
+
+        const panelTL = gsap.timeline({
+          scrollTrigger: {
+            trigger: panel,
+            start: "top 85%",
+            end: "bottom 40%",
+            toggleActions: "play reverse play reverse"
+          }
+        });
+
+        if (bgImg) {
+          panelTL.fromTo(bgImg,
+            { scale: 1.15, filter: "brightness(0.6)" },
+            { scale: 1.02, filter: "brightness(0.9)", duration: 0.8, ease: "power2.out" },
+            0
+          );
+        }
+
+        panelTL.fromTo([slitTitle, slitDesc, slitAction],
+          { y: 20, opacity: 0.3 },
+          { y: 0, opacity: 1, stagger: 0.08, duration: 0.6, ease: "power2.out" },
+          0.1
+        );
+      });
+
+      // 4. SCENE 04: MOBILE SOCIAL MONOLITH (MASKED WORD REVEALS & RED CROSS)
+      const monolithTL = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#sceneMonolith",
+          start: "top 75%",
+          end: "bottom 50%",
+          toggleActions: "play none none reverse"
+        }
+      });
+
+      monolithTL
+        .fromTo(".word-slice .inner", 
+          { y: "105%", opacity: 0 },
+          { y: "0%", opacity: 1, duration: 0.6, stagger: 0.1, ease: "power3.out" }
+        )
+        .fromTo(".word-slice .inner.cross-through",
+          { "--cross-scale": 0 },
+          { "--cross-scale": 1, duration: 0.45, ease: "power2.inOut" },
+          "+=0.1"
+        )
+        .fromTo(".monolith-counter-argument",
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" },
+          "-=0.2"
+        );
+
+      // 5. SCENE 05: MOBILE HARBOR DOLLY-IN
+      const harborMobileTL = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#sceneHarbor",
+          start: "top 80%",
+          end: "bottom 40%",
+          scrub: 0.5
+        }
+      });
+
+      harborMobileTL
+        .fromTo("#harborPhoto",
+          { scale: 1.14, opacity: 0.7 },
+          { scale: 1.0, opacity: 1.0, ease: "power1.out" }
+        )
+        .fromTo("#harborSign",
+          { y: 25, opacity: 0.5 },
+          { y: 0, opacity: 1.0, ease: "power1.out" },
+          0.2
+        );
+
+      // 6. SCENE 06: FINAL TICKET COUNTER REVEAL
+      gsap.from(".final-container", {
+        scrollTrigger: {
+          trigger: "#sceneFinal",
+          start: "top 85%",
+          toggleActions: "play none none reverse"
+        },
+        y: 35,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.out"
+      });
+
     });
 
   }
 
 });
-

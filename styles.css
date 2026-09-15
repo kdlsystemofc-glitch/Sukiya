@@ -1354,15 +1354,14 @@ body {
     width: 100%;
     max-width: 100%;
     height: 380px;
-    transform: none !important;
+    transform: none;
   }
   .dispatch-editorial-lockup {
     position: relative;
     left: auto;
     top: auto;
     width: 100%;
-    opacity: 1 !important;
-    transform: none !important;
+    opacity: 1;
     clip-path: none !important;
   }
 
@@ -1386,8 +1385,7 @@ body {
     border-bottom: 2px solid rgba(255, 255, 255, 0.15);
   }
   .slit-desc, .slit-action {
-    opacity: 1 !important;
-    transform: none !important;
+    opacity: 1;
     pointer-events: auto !important;
   }
 
@@ -1404,12 +1402,6 @@ body {
     font-size: clamp(6rem, 24vw, 12rem);
     max-width: 100vw;
   }
-  .word-slice .inner {
-    transform: none !important;
-  }
-  .word-slice .inner.cross-through::after {
-    transform: scaleX(1) !important;
-  }
 
   /* SCENE 05 MOBILE */
   .scene-harbor {
@@ -1424,12 +1416,12 @@ body {
   .harbor-backdrop-photo {
     position: relative;
     height: 350px;
+    overflow: hidden;
   }
   .harbor-img {
     width: 100%;
     height: 100%;
     position: relative;
-    transform: none !important;
   }
   .harbor-scrim-left {
     display: none;
@@ -1440,8 +1432,6 @@ body {
     top: auto;
     width: 100%;
     padding: 30px 20px 60px 20px;
-    opacity: 1 !important;
-    transform: none !important;
   }
 
   /* SCENE 06 MOBILE */
