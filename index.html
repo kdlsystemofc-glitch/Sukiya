@@ -3,13 +3,88 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sukiya São Bernardo — Tokyo Bowls & Noodles</title>
+  <title>Sukiya São Bernardo — Tokyo Bowls & Noodles | Donburi e Curry</title>
+  <meta name="description" content="Autênticos Donburis, Gyūdon e Curry japoneses servidos quentes, com fartura e rapidez no Centro de São Bernardo do Campo. R. Marechal Deodoro, 605. Peça online ou retire." />
+  <link rel="canonical" href="https://sukiya-saobernardo.com.br/" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="theme-color" content="#b8141d" />
+
+  <!-- OPEN GRAPH / FACEBOOK -->
+  <meta property="og:type" content="restaurant" />
+  <meta property="og:url" content="https://sukiya-saobernardo.com.br/" />
+  <meta property="og:title" content="Sukiya São Bernardo — Tokyo Bowls & Noodles" />
+  <meta property="og:description" content="Autênticos Donburis, Gyūdon e Curry japoneses servidos com rapidez e fartura. Aberto até 22:40 na Rua Marechal Deodoro, 605 — Centro, São Bernardo do Campo." />
+  <meta property="og:image" content="https://sukiya-saobernardo.com.br/imagens/imgi_8_620395924_18055986089355409_5752489962997242887_n.jpg" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Sukiya São Bernardo" />
+
+  <!-- TWITTER / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://sukiya-saobernardo.com.br/" />
+  <meta name="twitter:title" content="Sukiya São Bernardo — Tokyo Bowls & Noodles" />
+  <meta name="twitter:description" content="O japonês quente, fartura pura, direto ao ponto. Donburis e Ramens em São Bernardo do Campo." />
+  <meta name="twitter:image" content="https://sukiya-saobernardo.com.br/imagens/imgi_8_620395924_18055986089355409_5752489962997242887_n.jpg" />
+
+  <!-- STRUCTURED DATA (SCHEMA.ORG) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["Restaurant", "FastFoodRestaurant"],
+    "name": "Sukiya São Bernardo",
+    "image": "https://sukiya-saobernardo.com.br/imagens/imgi_8_620395924_18055986089355409_5752489962997242887_n.jpg",
+    "url": "https://sukiya-saobernardo.com.br/",
+    "telephone": "+5511976580784",
+    "priceRange": "R$ 40 - R$ 60",
+    "servesCuisine": ["Japanese", "Japonesa", "Donburi", "Curry", "Ramen"],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua Marechal Deodoro, 605",
+      "addressLocality": "São Bernardo do Campo",
+      "addressRegion": "SP",
+      "postalCode": "09710-010",
+      "addressCountry": "BR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -23.7056,
+      "longitude": -46.5501
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "11:00",
+        "closes": "22:40"
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.3",
+      "reviewCount": "3094"
+    },
+    "hasMenu": "https://sukiya-brasil.com.br",
+    "sameAs": [
+      "https://sukiya-brasil.com.br",
+      "https://www.instagram.com"
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <a href="#heroHeadline" class="skip-link sr-only">Pular para o conteúdo principal</a>
 
   <!-- SCROLL WRAPPER (PINNED CINEMATIC CONTAINER) -->
   <div class="scroll-container" id="scrollContainer">
@@ -23,19 +98,19 @@
         <!-- BACKGROUND FOOD PHOTOGRAPHY -->
         <div class="visual-gallery" id="visualGallery">
           <div class="gallery-item active" data-index="0">
-            <img src="imagens/imgi_8_620395924_18055986089355409_5752489962997242887_n.jpg" alt="Katsu Curry Sukiya com Hashi e Molho Especial" class="full-photo" id="mainDishPhoto" />
+            <img src="imagens/imgi_8_620395924_18055986089355409_5752489962997242887_n.jpg" alt="Katsu Curry Sukiya com Hashi e Molho Especial" class="full-photo" id="mainDishPhoto" width="1200" height="800" fetchpriority="high" decoding="async" loading="eager" />
             <div class="photo-vignette" id="photoVignette"></div>
           </div>
           <div class="gallery-item" data-index="1">
-            <img src="imagens/202006161509_bBDT_s@2x.avif" alt="Mesa de Bowls Sukiya com Gyūdon e Curry" class="full-photo" />
+            <img src="imagens/202006161509_bBDT_s@2x.avif" alt="Mesa de Bowls Sukiya com Gyūdon e Curry" class="full-photo" width="1200" height="800" decoding="async" loading="eager" />
             <div class="photo-vignette"></div>
           </div>
           <div class="gallery-item" data-index="2">
-            <img src="imagens/621687794_18086618480468713_7527930260290207422_n.jpg" alt="Tonkatsu Don servido na bandeja vermelha com Hashi Sukiya" class="full-photo" />
+            <img src="imagens/621687794_18086618480468713_7527930260290207422_n.jpg" alt="Tonkatsu Don servido na bandeja vermelha com Hashi Sukiya" class="full-photo" width="1200" height="800" decoding="async" loading="lazy" />
             <div class="photo-vignette"></div>
           </div>
           <div class="gallery-item" data-index="3">
-            <img src="imagens/imgi_11_619660889_18089277443045232_6913015923758080462_n.jpg" alt="Karaague Don com Cebolinha Fresca, Gengibre e Ovo" class="full-photo" />
+            <img src="imagens/imgi_11_619660889_18089277443045232_6913015923758080462_n.jpg" alt="Karaague Don com Cebolinha Fresca, Gengibre e Ovo" class="full-photo" width="1200" height="800" decoding="async" loading="lazy" />
             <div class="photo-vignette"></div>
           </div>
         </div>
@@ -139,7 +214,7 @@
           <div class="rating-box">
             <span class="stars">★★★★★</span>
             <span class="score">4,3</span>
-            <span class="count">(+3.000 avaliações no Google)</span>
+            <span class="count">(+3.090 avaliações no Google)</span>
           </div>
           <div class="tag-inclusive">
             <span>Espaço Acolhedor LGBTQ+</span>
@@ -166,7 +241,7 @@
           <div class="counter-watermark-time" id="counterTimer">180s</div>
           <div class="tray-assembly" id="trayAssembly">
             <div class="tray-media-frame">
-              <img src="imagens/621687794_18086618480468713_7527930260290207422_n.jpg" alt="Bandeja de Donburi Sukiya servida no balcão" class="tray-photo" />
+              <img src="imagens/621687794_18086618480468713_7527930260290207422_n.jpg" alt="Bandeja de Donburi Sukiya servida no balcão" class="tray-photo" width="1080" height="1350" decoding="async" loading="lazy" />
               <div class="tray-rim-shadow"></div>
             </div>
             <div class="tray-tag-chopsticks">
@@ -197,7 +272,7 @@
           <!-- SLIT 01: GYUDON -->
           <div class="slit-panel slit-gyudon" data-slit="1">
             <div class="slit-media-wrap">
-              <img src="imagens/202006161509_bBDT_s@2x.avif" alt="Gyūdon Tradicional Sukiya" class="slit-img" />
+              <img src="imagens/202006161509_bBDT_s@2x.avif" alt="Gyūdon Tradicional Sukiya" class="slit-img" width="1200" height="800" decoding="async" loading="lazy" />
               <div class="slit-overlay"></div>
             </div>
             <div class="slit-content">
@@ -211,7 +286,7 @@
           <!-- SLIT 02: KATSU CURRY -->
           <div class="slit-panel slit-curry" data-slit="2">
             <div class="slit-media-wrap">
-              <img src="imagens/imgi_8_620395924_18055986089355409_5752489962997242887_n.jpg" alt="Katsu Curry Crocante" class="slit-img" />
+              <img src="imagens/imgi_8_620395924_18055986089355409_5752489962997242887_n.jpg" alt="Katsu Curry Crocante" class="slit-img" width="1200" height="800" decoding="async" loading="lazy" />
               <div class="slit-overlay"></div>
             </div>
             <div class="slit-content">
@@ -225,7 +300,7 @@
           <!-- SLIT 03: KARAAGUE DON -->
           <div class="slit-panel slit-karaague" data-slit="3">
             <div class="slit-media-wrap">
-              <img src="imagens/imgi_11_619660889_18089277443045232_6913015923758080462_n.jpg" alt="Karaague Don com Cebolinha e Ovo" class="slit-img" />
+              <img src="imagens/imgi_11_619660889_18089277443045232_6913015923758080462_n.jpg" alt="Karaague Don com Cebolinha e Ovo" class="slit-img" width="1200" height="800" decoding="async" loading="lazy" />
               <div class="slit-overlay"></div>
             </div>
             <div class="slit-content">
@@ -274,7 +349,7 @@
     <section class="scene-harbor" id="sceneHarbor" data-scene="5">
       <div class="harbor-viewport">
         <div class="harbor-backdrop-photo">
-          <img src="imagens/imgi_6_620845851_18091493437825576_5347141240222338434_n.jpg" alt="Fachada noturna iluminada do Sukiya na Rua Marechal Deodoro" class="harbor-img" id="harborPhoto" />
+          <img src="imagens/imgi_6_620845851_18091493437825576_5347141240222338434_n.jpg" alt="Fachada noturna iluminada do Sukiya na Rua Marechal Deodoro" class="harbor-img" id="harborPhoto" width="1080" height="1350" decoding="async" loading="lazy" />
           <div class="harbor-scrim-left"></div>
           <div class="harbor-scrim-top"></div>
         </div>
@@ -346,8 +421,12 @@
 
       <footer class="final-minimal-footer">
         <div class="footer-row">
-          <span class="f-copy">© SUKIYA SÃO BERNARDO DO CAMPO — AUTÊNTICA COMIDA JAPONESA DE BALCÃO</span>
-          <span class="f-info">TOKYO BOWLS & NOODLES</span>
+          <span class="f-copy">© SUKIYA SÃO BERNARDO DO CAMPO — <a href="https://sukiya-brasil.com.br" target="_blank" rel="noopener noreferrer" class="footer-link">SUKIYA-BRASIL.COM.BR</a></span>
+          <div class="footer-links-group">
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="footer-link">INSTAGRAM</a>
+            <span class="dot-sep">•</span>
+            <span class="f-info">TOKYO BOWLS & NOODLES</span>
+          </div>
         </div>
       </footer>
     </section>

@@ -1257,6 +1257,24 @@ body {
   letter-spacing: 1px;
 }
 
+.footer-links-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: var(--gold-accent);
+}
+
 /* ==========================================================================
    MOBILE RESPONSIVENESS (390x844)
    ========================================================================== */
@@ -1320,6 +1338,7 @@ body {
   }
   .dispatch-counter-surface {
     height: auto;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -1327,9 +1346,13 @@ body {
   .counter-rail-track {
     display: none;
   }
+  .counter-watermark-time {
+    display: none;
+  }
   .tray-assembly {
     position: relative;
     width: 100%;
+    max-width: 100%;
     height: 380px;
     transform: none !important;
   }
@@ -1377,8 +1400,15 @@ body {
     height: auto;
     padding: 100px 20px;
   }
+  .monolith-backdrop-score {
+    font-size: clamp(6rem, 24vw, 12rem);
+    max-width: 100vw;
+  }
   .word-slice .inner {
     transform: none !important;
+  }
+  .word-slice .inner.cross-through::after {
+    transform: scaleX(1) !important;
   }
 
   /* SCENE 05 MOBILE */
@@ -1415,6 +1445,9 @@ body {
   }
 
   /* SCENE 06 MOBILE */
+  .scene-final {
+    padding: 80px 20px 30px 20px;
+  }
   .final-actions-dock {
     flex-direction: column;
     width: 100%;
@@ -1422,5 +1455,140 @@ body {
   .btn-ticket-primary, .btn-ticket-secondary {
     width: 100%;
     justify-content: center;
+    padding: 18px 20px;
+    font-size: 1.35rem;
+  }
+  .final-minimal-footer {
+    padding-top: 24px;
+  }
+  .footer-row {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+  .footer-links-group {
+    justify-content: center;
   }
 }
+
+/* ==========================================================================
+   PRODUCTION ACCESSIBILITY & INCLUSION ENHANCEMENTS
+   ========================================================================== */
+
+/* SCREEN READER ONLY UTILITY */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* SKIP TO CONTENT LINK */
+.skip-link {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  background-color: var(--gold-accent);
+  color: var(--black-pure);
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 0.88rem;
+  padding: 12px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.85);
+  transform: translateY(-200%);
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+  outline: 3px solid var(--text-white);
+  outline-offset: 2px;
+}
+
+/* FOCUS-VISIBLE INTEGRATED TO ART DIRECTION */
+:focus-visible {
+  outline: 2px solid var(--gold-accent);
+  outline-offset: 4px;
+}
+
+.nav-tab:focus-visible {
+  outline: 2px solid var(--gold-accent);
+  outline-offset: 2px;
+}
+
+.cta-button:focus-visible,
+.btn-ticket-primary:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px rgba(245, 184, 46, 0.45);
+}
+
+.btn-ticket-secondary:focus-visible,
+.slit-action:focus-visible {
+  outline: 2px solid var(--gold-accent);
+  outline-offset: 3px;
+}
+
+.footer-link:focus-visible,
+.direct-contact a:focus-visible {
+  outline: 2px solid var(--gold-accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* PREFERS-REDUCED-MOTION SUPPORT */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .scroll-cue {
+    animation: none !important;
+  }
+
+  /* Keep full visibility on elements without scrub required */
+  .dispatch-editorial-lockup {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+
+  .slit-desc, .slit-action {
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto !important;
+  }
+
+  .word-slice .inner {
+    transform: none !important;
+  }
+
+  .word-slice .inner.cross-through::after {
+    transform: scaleX(1) !important;
+  }
+
+  .harbor-station-sign {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .harbor-img {
+    transform: none !important;
+  }
+
+  .tray-assembly {
+    transform: none !important;
+  }
+}
+
